@@ -63,6 +63,20 @@
       margin-bottom: 20px;
     }
   }
+
+  .who-will-go {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .who-will-go-image {
+    background-image: url("<%=asset_path"veg-heros.jpg"%>");
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    border-radius: 5px;
+  }
 </style>
 
 <div class="all-events-container">
@@ -94,11 +108,16 @@
       <%= button_to "I will go", attendances_path(event_id: @event.id), method: :post, class: "attend-button" %>
     </div>
 
-    <div>
-      <h2>Who will go</h2>
-      <% @event.users.each do |user| %>
-        <p><%= user.email %></p>
-      <% end %>
+    <div class="who-will-go">
+      <div>
+        <h2>Who will go</h2>
+        <% @event.users.each do |user| %>
+          <p><%= user.email %></p>
+        <% end %>
+      </div>
+
+      <div class="who-will-go-image">
+      </div>
     </div>
   </div>
 </div>
