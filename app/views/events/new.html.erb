@@ -1,15 +1,91 @@
-<h1>Events#new</h1>
+<style>
+  .new-event {
+    max-width: 340px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
 
-<p>Create new Event</p>
+  h2 {
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
 
+  .field {
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    font-weight: bold;
+
+  }
+
+  input{
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s ease;
+  }
+
+  input:focus
+ {
+    border-color: #888;
+  }
+
+  .actions {
+    text-align: center;
+  }
+
+  input[type="submit"] {
+    background-color: tomato;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+
+  .error-messages {
+    color: #f00;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .links {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .links a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+  }
+
+  .links a:hover {
+    color: #0056b3;
+  }
+</style>
 
 <style>
-.field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
-}
-
+  .field_with_errors {
+    padding: 2px;
+    background-color: red;
+    display: table;
+  }
 </style>
 
 <% if @event.errors.any? %>
@@ -26,24 +102,37 @@
 
 
 
+<div class="new-event">
+  <h2>Creat New Event</h2>
 
-<%= form_for @event do |f| %>
+  <%= form_for @event do |f| %>
 
-<%= f.label :event_name, "Event Name:" %>
-<%= f.text_field :event_name %><br>
+  <div class="field">
+    <%= f.label :event_name, "Event Name:" %><br />
+    <%= f.text_field :event_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :event_date, "Event Date:" %><br>
+    <%= f.datetime_field :event_date, min: Time.now.strftime('%Y-%m-%dT%H:%M') %>
+  </div>
 
 
-<%= f.label :event_date, "Event Date:" %>
-<%= f.datetime_field :event_date %><br>
+  <div class="field">
+    <%= f.label :event_location, "Event Location:" %><br>
+    <%= f.text_field :event_location %>
+  </div>
+  <div class="field">
+    <%= f.label :event_text, "Event Text:" %><br>
+    <%= f.text_area :event_text, style: 'width:100%;' %>
+  </div>
 
-<%= f.label :event_location, "Event Location:" %>
-<%= f.text_field :event_location %><br>
+  <div class="actions">
+    <%= f.submit "Create Event" %>
+  </div>
+  <% end %>
+</div>
 
-<%= f.label :event_text, "Event Text:" %>
-<%= f.text_area :event_text %><br>
-
-<%= f.submit "Create Event" %>
-<% end %>
 
 
 <%# Table Event {
