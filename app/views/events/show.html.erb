@@ -1,3 +1,70 @@
+<style>
+  .all-events-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .event-show-grid {
+    display: grid;
+    gap: 20px;
+  }
+
+  .event-show {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+
+  .attend-button {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .attend-button:hover {
+    background-color: #0056b3;
+  }
+
+  /* Responsive Styles */
+  @media (max-width: 480px) {
+    .event-show-grid {
+      display: block;
+    }
+
+    .event-show {
+      margin-bottom: 20px;
+    }
+  }
+</style>
+
 <div class="all-events-container">
   <div class="event-show-grid">
     <div class="event-show">
@@ -7,7 +74,7 @@
         <strong>event_name:</strong>
         <%= @event.event_name %>
       </p>
-      
+
       <p>
         <strong>event_date:</strong>
         <%= @event.event_date %>
@@ -17,17 +84,18 @@
         <strong>event_location:</strong>
         <%= @event.event_location %>
       </p>
-      
+
       <p>
         <strong>event_text:</strong>
         <%= @event.event_text %>
       </p>
 
       <br><br>
-      <%= button_to "I will go", attendances_path(event_id: @event.id), method: :post %>
+      <%= button_to "I will go", attendances_path(event_id: @event.id), method: :post, class: "attend-button" %>
     </div>
+
     <div>
-    <h2>Who will go</h2>
+      <h2>Who will go</h2>
       <% @event.users.each do |user| %>
         <p><%= user.email %></p>
       <% end %>
