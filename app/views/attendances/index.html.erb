@@ -1,0 +1,29 @@
+<div class="all-events-container">
+  <h1>Attendances#index</h1><br><br>
+
+<div>
+  <h3>User: <%= current_user.email %> </h3>
+  
+</div>
+
+<hr>
+
+<div>
+  <h2>I made this:</h2>
+  <% @events_created.each do |event|%>
+  <%=content_tag :p, event.event_name%>
+  <%end%>
+</div>
+
+<hr>
+
+<div>
+  <h2>I will go here:</h2>
+  <% @attendances.each do |attendance|%>
+  <%=content_tag :p, attendance.event.event_name%>
+  <%end%>
+</div><br>
+
+
+<%= button_to "Sign out", destroy_user_session_path, method: :delete %>
+</div>

@@ -1,23 +1,36 @@
-<h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
+<div class="all-events-container">
+  <div class="event-show-grid">
+    <div class="event-show">
+      <h2>Events#show</h2>
 
+      <p>
+        <strong>event_name:</strong>
+        <%= @event.event_name %>
+      </p>
+      
+      <p>
+        <strong>event_date:</strong>
+        <%= @event.event_date %>
+      </p>
 
-<p>
-  <strong>event_name:</strong>
-  <%= @event.event_name %>
-</p>
- 
-<p>
-  <strong>event_date:</strong>
-  <%= @event.event_date %>
-</p>
+      <p>
+        <strong>event_location:</strong>
+        <%= @event.event_location %>
+      </p>
+      
+      <p>
+        <strong>event_text:</strong>
+        <%= @event.event_text %>
+      </p>
 
-<p>
-  <strong>event_location:</strong>
-  <%= @event.event_location %>
-</p>
- 
-<p>
-  <strong>event_text:</strong>
-  <%= @event.event_text %>
-</p>
+      <br><br>
+      <%= button_to "I will go", attendances_path(event_id: @event.id), method: :post %>
+    </div>
+    <div>
+    <h2>Who will go</h2>
+      <% @event.users.each do |user| %>
+        <p><%= user.email %></p>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'attendances/index'
+  get 'attendances/show'
   devise_for :users
   # get 'events/index'
   # get 'events/new'
@@ -10,8 +12,7 @@ Rails.application.routes.draw do
   # get 'events/update'
   # get 'events/destroy'
   resources :events
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :attendances, only: [:create]
 
-  # Defines the root path route ("/")
   root 'events#index'
 end

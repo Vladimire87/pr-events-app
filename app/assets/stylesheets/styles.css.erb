@@ -1,0 +1,171 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 72px;
+}
+
+.svg-logo {
+  color: tomato;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.nav-menu {
+  display: flex;
+  font-size: 13px;
+  gap: 1em;
+  list-style: none;
+}
+
+.nav-menu li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-menu img {
+  height: 68px;
+  display: flex;
+}
+
+a {
+  text-decoration: none;
+}
+
+label {
+  cursor: pointer;
+}
+
+a:visited {
+  color: black;
+}
+
+/* mouse over link */
+a:hover {
+  font-weight: 900;
+}
+
+.hero-image {
+  display: flex;
+  min-width: 100%;
+  min-height: 200px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)),
+    url(<%=asset_path"hero-image.jpg"%>);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.hero-image h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: 900;
+  font-size: 5em;
+  margin: auto;
+  padding-left: 16px;
+}
+
+.all-events-container {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.box {
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 15px;
+}
+
+.grid > article {
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 6px 0px rgb(206, 163, 163);
+  background-color: #fff;
+  padding: 5% 0;
+  border-radius: 20px;
+}
+
+.grid .text {
+  padding: 10px 20px 20px 30px;
+  color: #808285;
+  margin-bottom: 20px;
+}
+
+.grid .btn {
+  margin-top: 20px;
+  background-color: #e0d4e9;
+  border: 0;
+  border-radius: 5px;
+  color: #000;
+  font-size: 15px;
+  padding: 5px 10px 5px 10px;
+  line-height: 5;
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #d1d3d4;
+  transition-duration: 80ms;
+}
+
+h3 {
+  color: #000;
+  text-align: left;
+}
+
+.gridtest {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-gap: 25px;
+}
+
+.alerts {
+  text-align: center;
+}
+
+.footer {
+  margin-top: auto;
+  background-color: tomato;
+  color: white;
+  text-align: center;
+  font-style: italic;
+  font-size: 13px;
+}
+
+.main {
+}
+
+.event-show-grid {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+}

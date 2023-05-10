@@ -12,9 +12,21 @@
 
   <body>
     <%= render 'layouts/header' %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+
+    <div class="alerts">
+      <p class="notice"><%#= notice %></p>
+      <p class="alert"><%#= alert %></p>
+      <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, class: "alert alert-#{name}" %>
+<% end %>
+
+    </div>
+
+    <div class="main">
+      <%= yield %>
+    </div>
+    
+
     <%= render 'layouts/footer' %>
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

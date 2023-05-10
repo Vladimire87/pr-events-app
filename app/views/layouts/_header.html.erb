@@ -7,11 +7,25 @@
 <% end %>
 
   <div class="nav-menu">
-    <li> <%= link_to  "Create an event", new_event_path %></li>
-    <li><%= link_to  "Log In", new_user_session_path %> </li>
-    <li> <%= link_to  "Sign Up", new_user_registration_path %> </li>
+    <li>
+      <%= link_to  "Create an event", new_event_path %>
+    </li>
+       <% if user_signed_in? %>
+    <li>
+         <%= link_to attendances_index_path do %>
+           <%= image_tag 'sett-avatar.png' %>
+       <% end %>
+    </li>
+      <% else %>
+          <li><%= link_to  "Log In", new_user_session_path %> </li>
+          <li> <%= link_to  "Sign Up", new_user_registration_path %> </li>
+      <% end %>
   </div>
 </nav>
 
+<div class="hero-image">
+<h1>Party Rocking</h1>
+
+</div>
 
 
